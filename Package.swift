@@ -13,6 +13,10 @@ let package = Package(
         )
     ],
     targets: [
-        .target(name: "xxooooxxCommonUI")
+        .target(name: "xxooooxxCommonUI"),
+        .testTarget(
+            name: "xxooooxxCommonUITest",
+            dependencies: ["xxooooxxCommonUI"]
+        )
     ]
 )
