@@ -10,6 +10,10 @@ let package = Package(
         .library(
             name: "xxooooxxCommonUI",
             targets: ["xxooooxxCommonUI"]
+        ),
+        .library(
+            name: "xxooooxxCommonFunction",
+            targets: ["xxooooxxCommonFunction"]
         )
     ],
     targets: [
@@ -17,6 +21,7 @@ let package = Package(
         .testTarget(
             name: "xxooooxxCommonUITest",
             dependencies: ["xxooooxxCommonUI"]
-        )
+        ),
+        .target(name: "xxooooxxCommonFunction")
     ]
 )
