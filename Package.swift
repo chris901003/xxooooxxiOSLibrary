@@ -16,8 +16,16 @@ let package = Package(
             targets: ["xxooooxxCommonFunction"]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/google/GoogleSignIn-iOS", from: "8.0.0")
+    ],
     targets: [
-        .target(name: "xxooooxxCommonUI"),
+        .target(
+            name: "xxooooxxCommonUI",
+            dependencies: [
+                .product(name: "GoogleSignIn", package: "GoogleSignIn-iOS")
+            ]
+        ),
         .testTarget(
             name: "xxooooxxCommonUITest",
             dependencies: ["xxooooxxCommonUI"]
