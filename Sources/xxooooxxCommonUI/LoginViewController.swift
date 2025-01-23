@@ -16,7 +16,7 @@ public protocol XOLoginViewControllerDelegate: AnyObject {
     func googleSignInAction()
 }
 
-public class XOLoginViewController: UIViewController {
+open class XOLoginViewController: UIViewController {
     let mainContentView = UIView()
     let titleLabel = UILabel()
     let appleSignInButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
@@ -24,7 +24,7 @@ public class XOLoginViewController: UIViewController {
 
     public weak var delegate: XOLoginViewControllerDelegate?
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         layout()
