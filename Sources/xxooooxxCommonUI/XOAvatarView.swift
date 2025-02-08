@@ -31,6 +31,10 @@ public class XOAvatarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public func config(_ image: UIImage) {
+        avatarView.image = image
+    }
+
     private func setup() {
         avatarView.contentMode = .scaleAspectFill
         avatarView.clipsToBounds = true
