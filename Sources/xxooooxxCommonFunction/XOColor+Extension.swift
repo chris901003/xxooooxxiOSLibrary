@@ -25,3 +25,38 @@ extension UIColor {
         )
     }
 }
+
+extension UIColor {
+    public var toHexString: String {
+        guard let components = cgColor.components, components.count >= 3 else {
+            return "#FFFFFF"
+        }
+        
+        let r = Float(components[0])
+        let g = Float(components[1])
+        let b = Float(components[2])
+        let a = Float(cgColor.alpha)
+        
+        if a < 1.0 {
+            // 帶 alpha
+            return String(format: "#%02lX%02lX%02lX%02lX",
+                          lroundf(Float(a * 255)),
+                          lroundf(Float(rgba.r * 255)),
+                          lroundf(Float(rgba.g * 255)),
+                          lroundf(Float(rgba.b * 255)))
+        } else {
+            // 不帶 alpha
+            return String(format: "#%02lX%02lX%02lX",
+                          lroundf(Float(rgba.r * 255)),
+                          lroundf(Float(rgba.g * 255)),
+                          lroundf(Float(rgba.b * 255)))
+        }
+    }
+
+    // 方便取得 RGBA
+    private var rgba: (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        return (r, g, b, a)
+    }
+}
