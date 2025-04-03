@@ -9,10 +9,16 @@
 import Foundation
 import UIKit
 
+public protocol XOTitleWithUnderlineInputDelegate: AnyObject {
+    func inputWithUnderline(vc: XOTitleWithUnderlineInputView, text: String)
+}
+
 public class XOTitleWithUnderlineInputView: UIView {
     let titleLabel = UILabel()
     let textField = UITextField()
     let bottomLineView = XOExpandingLineView()
+
+    public weak var delegate: XOTitleWithUnderlineInputDelegate?
 
     public init(title: String, placeholder: String) {
         super.init(frame: .zero)
@@ -65,7 +71,12 @@ public class XOTitleWithUnderlineInputView: UIView {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension XOTitleWithUnderlineInputView: UITextFieldDelegate {
+    public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        delegate?.inputWithUnderline(vc: self, text: textField.text ?? "")
+    }
+
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
