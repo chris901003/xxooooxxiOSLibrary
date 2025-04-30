@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 public class XOCenterLabelCell: UITableViewCell {
+    public static let cellId = "XOCenterLabelCellId"
+
     let labelView = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

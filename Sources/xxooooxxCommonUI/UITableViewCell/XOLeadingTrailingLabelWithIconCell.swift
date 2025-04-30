@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 public class XOLeadingTrailingLabelWithIconCell: UITableViewCell {
+    public static let cellId = "XO_LEADING_TRAILING_LABEL_WITH_ICON_CELL_ID"
+
     let titleLabel = UILabel()
     let infoLabel = UILabel()
     let iconView = UIImageView()

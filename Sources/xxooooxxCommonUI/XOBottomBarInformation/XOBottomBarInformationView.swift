@@ -16,22 +16,22 @@ public enum XOBottomBarInformationType {
     func getBackgroundColor() -> UIColor {
         switch self {
             case .info:
-                return UIColor(hexCode: "FEE2E2")
+                return UIColor(hexCode: "FEF3C7")
             case .success:
                 return UIColor(hexCode: "D1FAE5")
             case .failed:
-                return UIColor(hexCode: "FEF3C7")
+                return UIColor(hexCode: "FEE2E2")
         }
     }
 
     func getTextColor() -> UIColor {
         switch self {
             case .info:
-                return UIColor(hexCode: "B91C1C")
+                return UIColor(hexCode: "D97706")
             case .success:
                 return UIColor(hexCode: "047857")
             case .failed:
-                return UIColor(hexCode: "D97706")
+                return UIColor(hexCode: "B91C1C")
         }
     }
 }
